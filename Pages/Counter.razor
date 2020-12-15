@@ -7,11 +7,14 @@
 <input @bind-value="tval"/>
 
 <p>Result: @currentCount</p>
+<p>Result: @currentCount2</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Get Result</button>
+<button class="btn btn-primary" @onclick="IncrementCount2">Increase</button>
 
 @code {
     private string currentCount;
+    private int currentCount2;
     string tval;
 
     private void IncrementCount()
@@ -19,7 +22,7 @@
         int s = 0;
         try
         {
-            s=  int.Parse(tval);
+            s = int.Parse(tval);
         }
         catch
         {
@@ -27,6 +30,11 @@
             return;
         }
 
-        currentCount=NumpyServ.GetNumbers(s);
+        currentCount = NumpyServ.GetNumbers(s);
+    }
+
+    private void IncrementCount2()
+    {
+        currentCount2 = NumpyServ.GetNumbers2(currentCount2);
     }
 }

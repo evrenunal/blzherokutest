@@ -13,7 +13,14 @@ namespace numpyblzsrvr.Data
         {
             var ss = np.arange(num);
             return ss.sum().repr.ToString();
-            
+
+        }
+
+        public int GetNumbers2(int num)
+        {
+
+            return num + 1;
+
         }
 
     }
