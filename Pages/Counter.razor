@@ -30,11 +30,11 @@
             return;
         }
 
-        currentCount = NumpyServ.GetNumbers(s);
+        currentCount = NumpyServ.GetNumbers(s).ToString();
     }
 
     private void IncrementCount2()
     {
-        currentCount2 = NumpyServ.GetNumbers2(currentCount2);
+        currentCount2++;
     }
 }
