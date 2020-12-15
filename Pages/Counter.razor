@@ -1,40 +1,24 @@
 ﻿@page "/counter"
 
-@using numpyblzsrvr.Data
-@inject NumpyService NumpyServ
+<h1>Counter</h1>
 
-<h1>Numpy Test</h1>
-<input @bind-value="tval"/>
+<p>Current count: @currentCount</p>
+<p>Sum: @sum</p>
 
-<p>Result: @currentCount</p>
-<p>Result: @currentCount2</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Get Result</button>
-<button class="btn btn-primary" @onclick="IncrementCount2">Increase</button>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="Sum">Sum</button>
 
 @code {
-    private string currentCount;
-    private int currentCount2;
-    string tval;
+    private int currentCount = 0;
+    private int sum = 0;
 
     private void IncrementCount()
     {
-        int s = 0;
-        try
-        {
-            s = int.Parse(tval);
-        }
-        catch
-        {
-
-            return;
-        }
-
-        currentCount = NumpyServ.GetNumbers(s).ToString();
+        currentCount++;
     }
 
-    private void IncrementCount2()
+    private void Sum()
     {
-        currentCount2++;
+      sum=  np.arange(currentCount).Sum().AsInt32Array().First();
     }
 }
