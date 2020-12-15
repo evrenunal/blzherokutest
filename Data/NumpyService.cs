@@ -11,8 +11,17 @@ namespace numpyblzsrvr.Data
 
         public string GetNumbers(int num)
         {
-            var ss = np.arange(num);
-            return ss.sum().repr.ToString();
+            try
+            {
+                var ss = np.arange(num);
+                return ss.sum().repr.ToString();
+            }
+            catch (Exception e)
+            {
+
+                return e.ToString();
+            }
+           
 
         }
 
