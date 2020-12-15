@@ -1,0 +1,32 @@
+﻿@page "/counter"
+
+@using numpyblzsrvr.Data
+@inject NumpyService NumpyServ
+
+<h1>Numpy Test</h1>
+<input @bind-value="tval"/>
+
+<p>Result: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Get Result</button>
+
+@code {
+    private string currentCount;
+    string tval;
+
+    private void IncrementCount()
+    {
+        int s = 0;
+        try
+        {
+            s=  int.Parse(tval);
+        }
+        catch
+        {
+
+            return;
+        }
+
+        currentCount=NumpyServ.GetNumbers(s);
+    }
+}
