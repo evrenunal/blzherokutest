@@ -18,7 +18,8 @@ namespace numpyblzsrvr.Data
             {
                 Date = startDate.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                Time=DateTime.Now.ToString("mm:ss")
             }).ToArray());
         }
     }
